@@ -6,7 +6,7 @@ using WebApplication3.Entities;
 
 namespace WebApplication3.Repositories
 {
-    interface IJogoRepositoriy
+    interface IJogoRepository
     {
         Task<List<Jogo>> Obter(int pagina, int quantidade);
         Task<Jogo> Obter(Guid id);
@@ -14,5 +14,6 @@ namespace WebApplication3.Repositories
         Task Inserir(Jogo jogo);
         Task Atualizar(Jogo jogo);
         Task Remover(Guid id);
+        void Dispose();
     }
 }
