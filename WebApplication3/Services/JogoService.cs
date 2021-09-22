@@ -14,7 +14,7 @@ namespace WebApplication3.Services
     {
         private readonly IJogoRepository _jogoRepository;
 
-        public JogoService(IJogoRepository jogoRepository)
+        private JogoService(IJogoRepository jogoRepository)
         {
             _jogoRepository = jogoRepository;
         }

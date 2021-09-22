@@ -13,6 +13,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using WebApplication3.Controllers.V1;
+using WebApplication3.Middleware;
 using WebApplication3.Repositories;
 using WebApplication3.Services;
 
@@ -31,13 +33,13 @@ namespace WebApplication3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IJogoService, JogoService>();
-            services.AddScoped<IJogoRepository, JogoRepository>();
+            services.AddScoped<IJogoRepository, JogoSqlServerRepository>();
 
             #region CicloDeVida
 
-           // services.AddSingleton<IExemploSingleton, ExemploCicloDeVida>();
-           // services.AddScoped<IExemploScoped, ExemploCicloDeVida>();
-           // services.AddTransient<IExemploTransient, ExemploCicloDeVida>();
+           services.AddSingleton<IExemploSingleton, ExemploCicloDeVida>();
+            services.AddScoped<IExemploScoped, ExemploCicloDeVida>();
+           services.AddTransient<IExemploTransient, ExemploCicloDeVida>();
 
             #endregion
 
